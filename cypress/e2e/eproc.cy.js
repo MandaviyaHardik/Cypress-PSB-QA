@@ -1,4 +1,6 @@
 /// <reference types="Cypress" />
+
+
 describe('psb QA', () => {
   
   Cypress.on('uncaught:exception', (err, runnable) => {
@@ -10,7 +12,7 @@ describe('psb QA', () => {
   it('Add1', () => {
     cy.viewport(1280, 720) // width and height in pixels
     cy.visit('https://psb.procure247.com')
-    cy.get(':nth-child(4) > .nav-link > :nth-child(2)').click()
+    cy.get('li:nth-child(5) a:nth-child(1) span:nth-child(2)').click()
     cy.get('#username').type('makerhardiksbi')
     cy.get('#password').type('Change@123')
     cy.get('#loginBtn').click()
@@ -19,9 +21,9 @@ describe('psb QA', () => {
     cy.get('#loginOtpBtn').click()
     cy.get(':nth-child(4) > .dropdown-toggle > div').click()
     cy.get('body > header:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > nav:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)').click()
-    cy.get('#custId').type('9862532')
-    cy.get('#propertyUniqueId').type('61110') // duplicate
-    cy.get('#collateralId').type('10216')     // duplicate
+    cy.get('#custId').type('98362532',{ delay: 0 })
+    cy.get('#propertyUniqueId').type('6112360',{ delay: 0 });  // duplicate
+    cy.get('#collateralId').type('160216',{ delay: 0 });     // duplicate
     cy.get('#propertyTypeId').select('1')
     cy.get('#propertySubTypeId').select("1")
     cy.get('#propertySubTypeId').select('1')
@@ -59,7 +61,7 @@ describe('psb QA', () => {
     cy.get('#demandNotice').type('02-07-2024')
     cy.get('#demandNoticeAmount').type('60000')
     cy.get('#ownerRelationShipId').select('Borrower')
-    cy.get('#cersaiId').type('02010')             //duplicate
+    cy.get('#cersaiId').type('032610',{ delay: 0 })             //duplicate
     cy.get('#propertyUsp').type('done property')
     cy.get('#submitBtn').click()
     cy.get('.btn-primary').click()
@@ -80,7 +82,7 @@ describe('psb QA', () => {
     cy.get('#ageOfConstruction').type('5')
     cy.get('#waterAvailability').type('yes')
     cy.get('#floorNo').type('9')
-    cy.get('#totalNoOfFloors').type('50')
+    cy.get('#totalNoOfFloors').type('50')    
     cy.get('#unitOnFloor').type('5')
     cy.get('#nearByEduInst').type('yes available')
     cy.get('#nearByShopCenters').type('yes available')
@@ -120,7 +122,8 @@ describe('psb QA', () => {
   
   // logout
 
-   cy.get(':nth-child(8) > .hvr-underline-from-center').click()
+   cy.get('div:nth-child(2) ul:nth-child(1) li:nth-child(8) a:nth-child(1)').click()
+   
    
 
   // login with checker
@@ -145,7 +148,7 @@ describe('psb QA', () => {
 
   // logout from checker
 
-  cy.get(':nth-child(8) > .hvr-underline-from-center').click()
+  cy.get('div:nth-child(2) ul:nth-child(1) li:nth-child(8) a:nth-child(1)').click()
   
   // login with maker for create auction
   
@@ -171,12 +174,12 @@ describe('psb QA', () => {
 
   cy.get('#authorizedOfficerName').type('hardik mandaviya')
   cy.get('#contactDetails').type('1234567899')
-  cy.get('#dateAndTimeFrom').type('03-07-2024 00:00')
-  cy.get('#dateAndTimeTo').type('04-07-2024 00:00')
-  cy.get('#startPaymentDate').type('05-07-2024 00:00', { force: true })
-  cy.get('#lastPaymentDate').type('06-07-2024 00:00', { force: true })
-  cy.get('#startDatetime').type('07-07-2024 00:00', { force: true })
-  cy.get('#endDatetime').type('08-07-2024 00:00', { force: true })
+  cy.get('#dateAndTimeFrom').type('07-07-2024 00:00')                     // Need to change
+  cy.get('#dateAndTimeTo').type('08-07-2024 00:00')                       // Need to change
+  cy.get('#startPaymentDate').type('09-07-2024 00:00', { force: true })   // Need to change
+  cy.get('#lastPaymentDate').type('10-07-2024 00:00', { force: true })    // Need to change
+  cy.get('#startDatetime').type('11-07-2024 00:00', { force: true })      // Need to change
+  cy.get('#endDatetime').type('12-07-2024 00:00', { force: true })        // Need to change
   
   cy.get('#startPrice').type('50000')
   cy.get('#decrementPrice').type('60000')
