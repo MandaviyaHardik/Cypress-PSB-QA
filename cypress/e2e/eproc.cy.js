@@ -12,27 +12,27 @@ describe('psb QA', () => {
   it('Add1', () => {
     cy.viewport(1280, 720) // width and height in pixels
     cy.visit('https://psb.procure247.com')
-    cy.get('li:nth-child(5) a:nth-child(1) span:nth-child(2)').click()
+    cy.get('html > body > app-root > div:nth-of-type(1) > app-header > div > app-before-login-header > header > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > ul > li:nth-of-type(5) > a > span:nth-of-type(2)').click()
     cy.get('#username').type('makerhardiksbi')
     cy.get('#password').type('Change@123')
     cy.get('#loginBtn').click()
     cy.get('#otp').click()
     cy.wait(10000)
     cy.get('#loginOtpBtn').click()
-    cy.get(':nth-child(4) > .dropdown-toggle > div').click()
-    cy.get('body > header:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > nav:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(4) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)').click()
+    cy.get(':nth-child(3) > .dropdown-toggle > div').click()
+    cy.get('.open > .dropdown-menu > :nth-child(1) > .hvr-underline-from-center').click()
     cy.get('#custId').type('98362532',{ delay: 0 })
-    cy.get('#propertyUniqueId').type('6112360',{ delay: 0 });  // duplicate
-    cy.get('#collateralId').type('160216',{ delay: 0 });     // duplicate
+    cy.get('#propertyUniqueId').type('61215456',{ delay: 0 });  // duplicate
+    cy.get('#collateralId').type('14289216',{ delay: 0 });     // duplicate
     cy.get('#propertyTypeId').select('1')
     cy.get('#propertySubTypeId').select("1")
     cy.get('#propertySubTypeId').select('1')
     cy.get('#propertyTitleDeedTypeId').select('Registered Sale Deed')
     cy.get('#borrowerName').type('hardik mandaviya')
     cy.get('#borrowerAddress').type('jamnagar')
-    cy.get('#isCoBorrowerAvailable').select('1')
-    cy.get("input[id='propertyDetailCoBorrowerDataBean[0].coBorrowerName']").type('hardik mandaviya')
-    cy.get("input[id='propertyDetailCoBorrowerDataBean[0].coBorrowerAddress']").type('jamnagar')
+    cy.get('#isCoBorrowerAvailable').select('0')
+  // cy.get("input[id='propertyDetailCoBorrowerDataBean[0].coBorrowerName']").type('hardik mandaviya')
+    //cy.get("input[id='propertyDetailCoBorrowerDataBean[0].coBorrowerAddress']").type('jamnagar')
     cy.get('#isGuarantorAvailable').select('1')
     cy.get('#isMultiGuarantorAvailable').select('1')    
     cy.get("input[name='propIsMultiGuarantor[0].guarantorName']").type('hardik mandaviya')
@@ -43,10 +43,10 @@ describe('psb QA', () => {
     cy.get('#locality').type('patel colony')
     cy.get('#latitude').type('20.20')
     cy.get('#longitude').type('60.60')  
-    cy.get('#stateID').select('11')
-    cy.get('#districtID').select('179')
-    cy.get('#cityID').select('3689')
-    cy.get('#pincode').type('361007')
+    //cy.get('#stateID').select('11')
+    //cy.get('#districtID').select('179')
+    //cy.get('#cityID').select('3689')
+    cy.get('#pincode').type('380015')
     cy.get('#summaryDesc').type('new property')
     cy.get('#propertyPossessionTypeId').select('2')
     cy.get('#physicalpossdate').type('02-07-2024')
@@ -61,7 +61,7 @@ describe('psb QA', () => {
     cy.get('#demandNotice').type('02-07-2024')
     cy.get('#demandNoticeAmount').type('60000')
     cy.get('#ownerRelationShipId').select('Borrower')
-    cy.get('#cersaiId').type('032610',{ delay: 0 })             //duplicate
+    cy.get('#cersaiId').type('061602',{ delay: 0 })             //duplicate
     cy.get('#propertyUsp').type('done property')
     cy.get('#submitBtn').click()
     cy.get('.btn-primary').click()
@@ -122,7 +122,7 @@ describe('psb QA', () => {
   
   // logout
 
-   cy.get('div:nth-child(2) ul:nth-child(1) li:nth-child(8) a:nth-child(1)').click()
+    cy.get(':nth-child(7) > .hvr-underline-from-center').click()
    
    
 
@@ -135,8 +135,9 @@ describe('psb QA', () => {
    cy.wait(10000)
    cy.get('#loginOtpBtn').click()
 
-   cy.get(':nth-child(4) > .dropdown-toggle > div').click() // click on property
-   cy.get('.open > .dropdown-menu > :nth-child(2) > .hvr-underline-from-center').click() // click on search property
+
+    cy.get(':nth-child(3) > .dropdown-toggle > div').click()// click on property
+    cy.get('.open > .dropdown-menu > li > .hvr-underline-from-center').click()// click on search property
    cy.get('[tabindex="0"] > a').click() // pending tab
    cy.wait(3000)
    cy.get(':nth-child(4) > .text-left > .tablink > :nth-child(1) > a').click() // review and approve link
@@ -148,7 +149,7 @@ describe('psb QA', () => {
 
   // logout from checker
 
-  cy.get('div:nth-child(2) ul:nth-child(1) li:nth-child(8) a:nth-child(1)').click()
+     cy.get(':nth-child(7) > .hvr-underline-from-center').click()
   
   // login with maker for create auction
   
@@ -159,7 +160,7 @@ describe('psb QA', () => {
   cy.wait(10000)
   cy.get('#loginOtpBtn').click()
 
-  cy.get(':nth-child(4) > .dropdown-toggle > div').click() // click on property
+  cy.get(':nth-child(3) > .dropdown-toggle > div').click() // click on property
   cy.get('.open > .dropdown-menu > :nth-child(2) > .hvr-underline-from-center').click()
   cy.get('[tabindex="1"] > a').click()
   cy.wait(3000)
@@ -174,12 +175,12 @@ describe('psb QA', () => {
 
   cy.get('#authorizedOfficerName').type('hardik mandaviya')
   cy.get('#contactDetails').type('1234567899')
-  cy.get('#dateAndTimeFrom').type('07-07-2024 00:00')                     // Need to change
-  cy.get('#dateAndTimeTo').type('08-07-2024 00:00')                       // Need to change
-  cy.get('#startPaymentDate').type('09-07-2024 00:00', { force: true })   // Need to change
-  cy.get('#lastPaymentDate').type('10-07-2024 00:00', { force: true })    // Need to change
-  cy.get('#startDatetime').type('11-07-2024 00:00', { force: true })      // Need to change
-  cy.get('#endDatetime').type('12-07-2024 00:00', { force: true })        // Need to change
+  cy.get('#dateAndTimeFrom').type('21-07-2024 00:00')                     // Need to change
+  cy.get('#dateAndTimeTo').type('22-07-2024 00:00')                       // Need to change
+  cy.get('#startPaymentDate').type('23-07-2024 00:00', { force: true })   // Need to change
+  cy.get('#lastPaymentDate').type('24-07-2024 00:00', { force: true })    // Need to change
+  cy.get('#startDatetime').type('25-07-2024 00:00', { force: true })      // Need to change
+  cy.get('#endDatetime').type('26-07-2024 00:00', { force: true })        // Need to change
   
   cy.get('#startPrice').type('50000')
   cy.get('#decrementPrice').type('60000')
@@ -209,7 +210,9 @@ describe('psb QA', () => {
   cy.get('.btn-primary').click()
 
   // logout form maker
-  cy.get(':nth-child(8) > .hvr-underline-from-center').click()
+
+
+    cy.get(':nth-child(7) > .hvr-underline-from-center').click()
 
   // login with checker
  
